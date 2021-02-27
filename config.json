@@ -1,0 +1,8 @@
+{
+    "dsn" : "user:password@tcp(127.0.0.1:3006)/",
+    "table" : "database_name.table_name",
+    "idColumn" : "id_columnd",
+    "js" : "nats://127.0.0.1:4222",
+    "subject" : "subject.data"
+    
+}
