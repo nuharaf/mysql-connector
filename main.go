@@ -15,10 +15,11 @@ import (
 )
 
 type Config struct {
-	Dsn     string
-	Table   string
-	Js      string
-	Subject string
+	Dsn      string
+	Table    string
+	idColumn string
+	Js       string
+	Subject  string
 }
 
 var startFrom int64
@@ -49,7 +50,7 @@ func main() {
 
 	var id int64 = startFrom
 	for {
-		rows, err := db.Query(fmt.Sprintf("select * from %s where id=?", conf.Table), id)
+		rows, err := db.Query(fmt.Sprintf("select * from %s where %s=?", conf.Table, conf.idColumn), id)
 		if err != nil {
 			panic(err)
 		}
